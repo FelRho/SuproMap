@@ -1,0 +1,80 @@
+
+
+body{
+  --color-primary: #0078ae;
+  --color-secondary: #04b3aa;
+  --color-tertiary: #0b2554;
+  --color-text: black;
+}
+
+main{
+  height: 100vh;
+}
+
+
+@keyframes keyframes1 {
+    0% {
+      transform: rotate(-2deg);
+      animation-timing-function: ease-in;
+    }
+
+    50% {
+      transform: rotate(2.5deg);
+      animation-timing-function: ease-out;
+    }
+  }
+
+  @keyframes keyframes2 {
+    0% {
+      transform: rotate(2deg);
+      animation-timing-function: ease-in;
+    }
+
+    50% {
+      transform: rotate(-2.5deg);
+      animation-timing-function: ease-out;
+    }
+  }
+
+  .shake1 {
+    animation-name: keyframes1;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 10%;
+    animation-duration: .25s;
+  }
+
+  .shake2 {
+    animation-name: keyframes2;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform-origin: 30% 5%;
+    animation-duration: .35s;
+    animation-delay: 0.10s;
+  }
+
+  .shake3 {
+    animation-name: keyframes1;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 10%;
+    animation-duration: .3s;
+    animation-delay: 0.1s;
+  }
+
+  .headline {
+    color: transparent;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    background-image: linear-gradient(to bottom left, #553c9a, #0078ae);
+    }
+
+    hr{
+      margin-top: 0 !important;
+      border: 0 !important;
+      border-bottom: 3px solid var(--color-primary) !important;
+      opacity: 1 !important;
+    }
+
+    .glow {
+      box-shadow: 0px 0px 20px var(--color-primary);
+      border-radius: var(--bs-border-radius);
+    }

@@ -1,0 +1,21 @@
+{
+  "name": "supromap",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@iconify/svelte": "^3.1.4",
+    "@sveltejs/vite-plugin-svelte": "^2.4.2",
+    "leaflet": "^1.9.4",
+    "svelte": "^4.0.5",
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.2"
+  }
+}
