@@ -60,6 +60,13 @@
       throw new Error(await res.text());
     }
   }
+
+  function onKeyDown(e){
+    if(e.key === "Enter")
+    {
+      searchClick();
+    }
+  }
 </script>
 
 <div
@@ -92,6 +99,7 @@
             class="form-control"
             placeholder="Name/Ort/Adresse"
             bind:value={searchText}
+            on:keydown={onKeyDown}
           />
           <button class="btn btn-primary" type="button" on:click={searchClick}>
             <Icon icon="material-symbols:search" width="24" />
