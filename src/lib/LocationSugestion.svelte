@@ -1,9 +1,12 @@
 <script>
+	import LocationTypeDropDown from './inputs/locationTypeDropDown.svelte';
     import Icon from "@iconify/svelte";
     import { createEventDispatcher } from "svelte";
 
     export let locationObject;
     export let selected = false;
+
+    let selectedType;
 
     const dispatcher = createEventDispatcher();
 
@@ -41,8 +44,12 @@
                     .state}. {locationObject.address.region || "-"}
             </p>
         </div>
-
         <p>{locationObject.class}</p>
+        
+        <div>
+            <LocationTypeDropDown bind:selectedType={selectedType}/>
+        </div>
+
         {#if selected}
         <button class="btn btn-secondary" type="button" on:click={removeClick}>
             <Icon icon="iconoir:map-pin-plus" width="25" />
