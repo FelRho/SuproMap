@@ -19,7 +19,7 @@
   }
 
   function addPin(e) {
-    let data = e.detail;
+    let data = e.detail.location;
 
     let newLocation = {
       title: `${data.name}`,
@@ -29,7 +29,7 @@
         data.address.town || data.address.village || data.address.city
       }`,
       note: "",
-      locationType: undefined,
+      locationType: e.detail.category,
       display_name: data.display_name,
       pos: [data.lat, data.lon],
     };

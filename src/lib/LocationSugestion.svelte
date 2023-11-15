@@ -13,7 +13,12 @@
 
     function addClick()
     {
-        dispatcher("addPin", locationObject);
+        dispatcher("addPin", 
+        {
+            location: locationObject,
+            category: selectedType
+        }
+        );
     }
 
 
