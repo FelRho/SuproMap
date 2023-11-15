@@ -130,7 +130,6 @@
 
 	export function setFocus(lat, lon, zoom)
 	{
-		console.log(lat + ", " + lon + " : " + zoom)
 		map.setView([lat, lon], zoom);
 	}
 

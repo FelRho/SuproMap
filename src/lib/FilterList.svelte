@@ -3,21 +3,39 @@
     import { locationTypes } from "./scripts/enums";
     import { getIconColor, getIconName } from "./scripts/IconLib";
     import { createEventDispatcher } from "svelte";
+    import { fade, fly, slide } from "svelte/transition";
 
-    const dispatcher = createEventDispatcher();
+    export let activefilters;
 
-    function filterClick(type)
+
+    let allFilters =  Object.keys(locationTypes);
+    allFilters.push(undefined);
+
+
+    function setOn(type)
     {
-        dispatcher("filterAdded", type);
+        activefilters = [...activefilters, type];
+    }
+
+    function setOff(type){
+        activefilters = activefilters.filter(x => x !== type);
     }
 
 </script>
 
 <div class="d-flex flex-row">
-    {#each Object.keys(locationTypes) as type}
-    <button class="btn btn-outline-secondary" on:click={() => filterClick(type)}>
+    {#each allFilters as type}
+    {#if activefilters.includes(type)}
+    <button class="btn btn-light me-3" on:click={() => setOff(type)}>
         <Icon icon={getIconName(type)} color={getIconColor(type)}  width=20/>
         {type}
     </button>
+    {:else}
+    <button class="btn btn-outline-secondary me-3" on:click={() => setOn(type)}>
+        <Icon icon={getIconName(type)} color={getIconColor(type)}  width=20/>
+        {type}
+    </button>
+    {/if}
+
     {/each}
 </div>

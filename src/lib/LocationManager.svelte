@@ -1,4 +1,5 @@
 <script>
+	import { locationTypes } from './scripts/enums.js';
     import Icon from "@iconify/svelte";
     import LocationItem from "./LocationItem.svelte";
     import EditLocationModal from "./Modals/EditLocationModal.svelte";
@@ -10,6 +11,7 @@
 
     export let locations;
     export let selectedLocation;
+    export let filters;
 
     let editMode = false;
     let editedLocation;
@@ -84,7 +86,7 @@
     </div>
     <div class="card-body">
         <div class="scrollArea">
-            {#each locations as location}
+            {#each locations.filter(x => filters.includes(x.locationType)) as location}
                 {#key location.display_name}
                         <LocationItem
                             bind:location
