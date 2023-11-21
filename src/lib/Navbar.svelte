@@ -3,16 +3,29 @@
   import { createEventDispatcher } from "svelte";
   import ImportModal from "./Modals/ImportModal.svelte";
   import { exportData } from "./scripts/ExportImport";
-    import Icon from "@iconify/svelte";
-    import { getIconColor, getIconName } from "./scripts/IconLib";
-    import FilterList from "./FilterList.svelte";
+  import Icon from "@iconify/svelte";
+  import { getIconColor, getIconName } from "./scripts/IconLib";
+  import FilterList from "./FilterList.svelte";
 
   export let activeFilters;
 
   function exportClick() {
     exportData();
   }
+
+  function screenShotClick() {
+
+  }
 </script>
+
+<svelte:head>
+  <script
+    src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"
+  >
+  </script>
+</svelte:head>
+
+<div  id="canvas" />
 
 <nav class="navbar nav_b_bottom">
   <div class="container-fluid">
@@ -32,8 +45,11 @@
         </div>
       </div>
     </a>
+    <button class="btn btn-outline-light" on:click={screenShotClick}>
+      <Icon icon="mdi:camera" width="30" />
+    </button>
     <div>
-      <FilterList bind:activefilters={activeFilters}/>
+      <FilterList bind:activefilters={activeFilters} />
     </div>
 
     <div>
