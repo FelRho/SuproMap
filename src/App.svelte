@@ -39,6 +39,7 @@
 
   let mapAction;
   let setView;
+  let takeScreenshot;
 
   function saveChanges() {
     storageManager.saveToLocalstorage(locations);
@@ -64,6 +65,10 @@
     locations = data;
     selectedLocation = undefined;
     saveChanges();
+  }
+
+  function TakeScreenShotClick(){
+    takeScreenshot();
   }
 
 
@@ -98,7 +103,7 @@ $: if(filters){
 </svelte:head>
 
 <main>
-  <Navbar bind:activeFilters={filters} on:imported={onImported}/>
+  <Navbar bind:activeFilters={filters} on:imported={onImported} on:screenShot={TakeScreenShotClick}/>
   <div class="container-fluid pt-3">
     <div class="d-flex flex-row">
       <div class="card me-3">
@@ -108,6 +113,7 @@ $: if(filters){
               locations={locations.filter(x => filters.includes(x.locationType))}
               bind:addMarker={mapAction}
               bind:setFocus={setView}
+              bind:takeScreenshot={takeScreenshot}
               on:showInList={showInList}
             />
           {/key}

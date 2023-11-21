@@ -4,17 +4,18 @@
   import ImportModal from "./Modals/ImportModal.svelte";
   import { exportData } from "./scripts/ExportImport";
   import Icon from "@iconify/svelte";
-  import { getIconColor, getIconName } from "./scripts/IconLib";
   import FilterList from "./FilterList.svelte";
 
   export let activeFilters;
+
+  const dispatcher = createEventDispatcher();
 
   function exportClick() {
     exportData();
   }
 
   function screenShotClick() {
-
+    dispatcher("screenShot");
   }
 </script>
 
@@ -25,7 +26,9 @@
   </script>
 </svelte:head>
 
-<div  id="canvas" />
+
+
+<img id="mapShot" alt="aaaa"/>
 
 <nav class="navbar nav_b_bottom">
   <div class="container-fluid">
