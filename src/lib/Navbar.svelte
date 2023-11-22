@@ -1,10 +1,11 @@
 <script>
-  import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
   import ImportModal from "./Modals/ImportModal.svelte";
   import { exportSavedData } from "./scripts/FileExporter";
   import Icon from "@iconify/svelte";
   import FilterList from "./FilterList.svelte";
+    import App from "../App.svelte";
+    import AppInfoModal from "./Modals/AppInfoModal.svelte";
 
   export let activeFilters;
 
@@ -19,13 +20,6 @@
   }
 </script>
 
-<svelte:head>
-  <script
-    src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"
-  >
-  </script>
-</svelte:head>
-
 
 <nav class="navbar nav_b_bottom">
   <div class="container-fluid">
@@ -36,6 +30,8 @@
           alt="Logo"
           width="70"
           class="d-inline-block align-text-top"
+          data-bs-toggle="modal"
+          data-bs-target="#appInfoModal"
         />
 
         <div class="d-flex flex-column justify-content-center">
@@ -72,6 +68,7 @@
 </nav>
 
 <ImportModal on:imported/>
+<AppInfoModal />
 
 <style>
   .nav_b_bottom {
