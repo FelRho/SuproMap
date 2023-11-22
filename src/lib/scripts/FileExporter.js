@@ -1,6 +1,6 @@
 import { storageManager } from "./storage";
 
-export async function exportData()
+export async function exportSavedData()
 {
     const data = storageManager.readFromLocalstorage();
 

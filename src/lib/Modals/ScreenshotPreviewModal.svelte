@@ -1,6 +1,6 @@
 <script>
     import Icon from "@iconify/svelte";
-    import { downloadFile } from "../scripts/ExportImport";
+    import { downloadFile } from "../scripts/FileExporter";
 
     export let imageSource;
 

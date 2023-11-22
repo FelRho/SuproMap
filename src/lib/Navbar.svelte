@@ -2,7 +2,7 @@
   import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
   import ImportModal from "./Modals/ImportModal.svelte";
-  import { exportData } from "./scripts/ExportImport";
+  import { exportSavedData } from "./scripts/FileExporter";
   import Icon from "@iconify/svelte";
   import FilterList from "./FilterList.svelte";
 
@@ -11,7 +11,7 @@
   const dispatcher = createEventDispatcher();
 
   function exportClick() {
-    exportData();
+    exportSavedData();
   }
 
   function screenShotClick() {
