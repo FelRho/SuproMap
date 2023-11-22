@@ -1,21 +1,26 @@
 <script>
-	import L from "leaflet";
+	import L, { simpleMapScreenshoter } from "leaflet";
 	import MarkerPopup from "./MarkerPopup.svelte";
 	import { getIconSvg } from "./scripts/IconLib";
-    import { createEventDispatcher } from "svelte";
+	import { createEventDispatcher } from "svelte";
+	import { SimpleMapScreenshoter } from "leaflet-simple-map-screenshoter";
+	export let locations;
+
 	let map;
 
 	const dispatcher = createEventDispatcher();
-
-	export let locations;
-
 	const initialView = [47.25761304887476, 9.81783795964424];
+
+	const screenShotter = new SimpleMapScreenshoter();
 
 	function createMap(container) {
 		let m = L.map(container, { preferCanvas: true }).setView(
 			initialView,
 			10
 		);
+
+		m.createPane("snapshot-pane");
+
 		L.tileLayer(
 			"https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
 			{
@@ -23,6 +28,7 @@
 	        &copy;<a href="https://carto.com/attributions" target="_blank">CARTO</a>`,
 				subdomains: "abcd",
 				maxZoom: 20,
+				pane: "snapshot-pane",
 			}
 		).addTo(m);
 
@@ -79,7 +85,7 @@
 				marker.setIcon(markerIcon(count));
 			});
 
-			c.$on("showInList", ({detail}) => {
+			c.$on("showInList", ({ detail }) => {
 				dispatcher("showInList", detail);
 			});
 
@@ -94,9 +100,11 @@
 	function mapAction(container) {
 		map = createMap(container);
 
+		screenShotter.addTo(map);
+
 		markerLayers = L.layerGroup();
 
-		locations.forEach(location => {
+		locations.forEach((location) => {
 			let m = createMarker(location);
 			markerLayers.addLayer(m);
 		});
@@ -127,13 +135,13 @@
 		}
 	}
 
-
-	export function setFocus(lat, lon, zoom)
-	{
+	export function setFocus(lat, lon, zoom) {
 		map.setView([lat, lon], zoom);
 	}
 
-
+	export function getScreenshotPromise() {
+		return screenShotter.takeScreen("image");
+	}
 </script>
 
 <svelte:window on:resize={resizeMap} />

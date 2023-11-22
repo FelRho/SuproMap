@@ -5,6 +5,7 @@
   import Map from "./lib/Map.svelte";
   import { storageManager } from "./lib/scripts/storage";
   import Navbar from "./lib/Navbar.svelte";
+    import ScreenshotPreviewModal from './lib/Modals/ScreenshotPreviewModal.svelte';
 
     const tooltipTriggerList = document.querySelectorAll(
     '[data-bs-toggle="tooltip"]'
@@ -35,10 +36,11 @@
   });
 
   let selectedLocation = undefined;
-
+  let screenShotSrc = "";
 
   let mapAction;
   let setView;
+  let getSceenshotPromise;
 
   function saveChanges() {
     storageManager.saveToLocalstorage(locations);
@@ -64,6 +66,17 @@
     locations = data;
     selectedLocation = undefined;
     saveChanges();
+  }
+
+  async function TakeScreenShotClick(){
+    
+
+    getSceenshotPromise().then((image) => {
+      screenShotSrc = image;
+    });
+
+
+    console.log(screenShotSrc)
   }
 
 
@@ -97,8 +110,9 @@ $: if(filters){
   ></script>
 </svelte:head>
 
+<ScreenshotPreviewModal bind:imageSource={screenShotSrc}/>
 <main>
-  <Navbar bind:activeFilters={filters} on:imported={onImported}/>
+  <Navbar bind:activeFilters={filters} on:imported={onImported} on:screenShot={TakeScreenShotClick}/>
   <div class="container-fluid pt-3">
     <div class="d-flex flex-row">
       <div class="card me-3">
@@ -108,6 +122,7 @@ $: if(filters){
               locations={locations.filter(x => filters.includes(x.locationType))}
               bind:addMarker={mapAction}
               bind:setFocus={setView}
+              bind:getScreenshotPromise={getSceenshotPromise}
               on:showInList={showInList}
             />
           {/key}
