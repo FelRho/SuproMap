@@ -5,6 +5,11 @@
     export let imageSource;
 
     function downloadButtonClick() {
+        if(!imageSource)
+        {
+            return;
+        }
+
         downloadFile(imageSource, "SuproMapImage", "png");
     }
 </script>
@@ -31,11 +36,20 @@
             </div>
             <div class="modal-body">
                 <div class="d-flex flex-row justify-content-center">
-                    <img
-                        src={imageSource}
-                        alt="screenshot of map"
-                        class="rounded"
-                    />
+                {#if imageSource}
+                <img
+                src={imageSource}
+                alt="screenshot of map"
+                class="rounded"
+            />
+                {:else}
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                {/if}
+
+
+
                 </div>
             </div>
             <div class="modal-footer">
