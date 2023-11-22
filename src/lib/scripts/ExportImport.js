@@ -2,28 +2,28 @@ import { storageManager } from "./storage";
 
 export async function exportData()
 {
-    let data = storageManager.readFromLocalstorage();
+    const data = storageManager.readFromLocalstorage();
 
-    let blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+    const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
 
+    downloadFile(URL.createObjectURL(blob), "SuproMapSave", "json");
+}
 
+export function downloadFile(url, name, type){
     const timestamp = new Date();
 
 
-    let dateTimeText = `${timestamp.getDate()}_${timestamp.getMonth() + 1}_${timestamp.getFullYear()}(${timestamp.getHours()}-${timestamp.getMinutes()}-${timestamp.getSeconds()})`;
+    const dateTimeText = `${timestamp.getDate()}_${timestamp.getMonth() + 1}_${timestamp.getFullYear()}(${timestamp.getHours()}-${timestamp.getMinutes()}-${timestamp.getSeconds()})`;
 
 
-    var tempLink = document.createElement("a");
+    let tempLink = document.createElement("a");
   
-    tempLink.setAttribute('href', URL.createObjectURL(blob));
+    tempLink.setAttribute('href', url);
   
-    tempLink.setAttribute('download', `SuproMap_${dateTimeText}.json`);
+    tempLink.setAttribute('download', `${name}_${dateTimeText}.${type}`);
     
     tempLink.click();
     
     URL.revokeObjectURL(tempLink.href);    
-}
 
-export function ImportData(){
-    
 }
