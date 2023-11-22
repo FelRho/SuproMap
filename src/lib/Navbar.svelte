@@ -27,9 +27,6 @@
 </svelte:head>
 
 
-
-<img id="mapShot" alt="aaaa"/>
-
 <nav class="navbar nav_b_bottom">
   <div class="container-fluid">
     <a class="navbar-brand" href="#supro">
@@ -48,7 +45,7 @@
         </div>
       </div>
     </a>
-    <button class="btn btn-outline-light" on:click={screenShotClick}>
+    <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#screenshotModal" on:click={screenShotClick}>
       <Icon icon="mdi:camera" width="30" />
     </button>
     <div>
@@ -71,7 +68,7 @@
   </div>
 </nav>
 
-<ImportModal on:imported />
+<ImportModal on:imported/>
 
 <style>
   .nav_b_bottom {

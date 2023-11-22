@@ -139,13 +139,8 @@
 		map.setView([lat, lon], zoom);
 	}
 
-	export function takeScreenshot() {
-
-		screenShotter.takeScreen("image").then((image) => {
-
-			const imgElement = document.getElementById("mapShot");
-			imgElement.src = image;
-		});
+	export function getScreenshotPromise() {
+		return screenShotter.takeScreen("image");
 	}
 </script>
 
