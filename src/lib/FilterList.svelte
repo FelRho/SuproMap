@@ -23,7 +23,7 @@
 
 </script>
 
-<div class="d-flex flex-row">
+<div class="d-flex flex-row filter_list">
     {#each allFilters as type}
     {#if activefilters.includes(type)}
     <button class="btn btn-light me-3" on:click={() => setOff(type)}>
@@ -39,3 +39,15 @@
 
     {/each}
 </div>
+
+
+<style>
+
+
+    .filter_list{
+        max-width: 50vw;
+        overflow: auto;
+    }
+
+
+</style>

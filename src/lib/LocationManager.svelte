@@ -76,9 +76,11 @@
                         data-bs-target="#exampleModal"
                     >
                         <Icon icon="ic:baseline-plus" width="25" />
+                        Hinzufügen
                     </button>
                     <button class="btn btn-primary" on:click={editClick}>
                         <Icon icon="mdi:pencil" width="25" />
+                        Bearbeiten
                     </button>
                 {/if}
             </div>

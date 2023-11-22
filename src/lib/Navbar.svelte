@@ -47,6 +47,7 @@
     </a>
     <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#screenshotModal" on:click={screenShotClick}>
       <Icon icon="mdi:camera" width="30" />
+      Screenshot
     </button>
     <div>
       <FilterList bind:activefilters={activeFilters} />
@@ -54,6 +55,7 @@
 
     <div>
       <button class="btn btn-outline-light" on:click={exportClick}>
+        <Icon icon="uil:export" width="25"/>
         Export
       </button>
 
@@ -62,6 +64,7 @@
         data-bs-toggle="modal"
         data-bs-target="#importModal"
       >
+      <Icon icon="uil:import" width="25"/>
         Import
       </button>
     </div>
