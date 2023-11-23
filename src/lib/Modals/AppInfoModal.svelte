@@ -2,6 +2,7 @@
     import Icon from "@iconify/svelte";
     import GroupBox from "../GroupBox.svelte";
     import TitleText from "../TitleText.svelte";
+    import DocsModal from "./DocsModal.svelte";
 </script>
 
 <div
@@ -17,7 +18,7 @@
                 <h3 class="modal-title headline" id="exampleModalLabel">
                     App Infos
                 </h3>
-                <button class="ms-5 btn btn-outline-danger">
+                <button class="ms-5 btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#docModal">
                     <Icon icon="mdi:nuclear" width="30" />
                 </button>
                 <button
@@ -91,9 +92,4 @@
     </div>
 </div>
 
-
-<style>
-
-
-
-</style>
+<DocsModal/>
