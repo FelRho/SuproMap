@@ -18,7 +18,7 @@
                     App Infos
                 </h3>
                 <button class="ms-5 btn btn-outline-danger">
-                    <Icon icon="mdi:nuclear" width=30/>
+                    <Icon icon="mdi:nuclear" width="30" />
                 </button>
                 <button
                     type="button"
@@ -33,15 +33,18 @@
                         <p>Konzept erklärt</p>
                     </TitleText>
                     <TitleText title="Featrues">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                            <li class="list-group-item">A fourth item</li>
-                            <li class="list-group-item mb-3">
-                                And a fifth one
-                            </li>
-                        </ul>
+                        <div>
+                            <p class="mb-0">
+                                Orte auf einer Markieren Hinzufügen von Markern
+                            </p>
+                            <p class="mb-0">Verwalten von bestehenden Markern</p>
+                            <p class="mb-0">Marker exportieren und importieren</p>
+                            <p class="mb-0">
+                                Marker mit unterschiedlichen Icons
+                                repräsentieren/kategorisieren
+                            </p>
+                            <p class="">Nach bestimmten Kategorien filtern</p>
+                        </div>
                     </TitleText>
                     <TitleText title="Version">
                         <p>1.1.0</p>
@@ -72,6 +75,9 @@
                             Github
                         </a>
                     </TitleText>
+                    <TitleText title="Sprache">
+                        <p>JavaScript (<a href="https://svelte.dev">Svelte</a>)</p>
+                    </TitleText>
                 </GroupBox>
             </div>
             <div class="modal-footer">
@@ -84,3 +90,10 @@
         </div>
     </div>
 </div>
+
+
+<style>
+
+
+
+</style>
