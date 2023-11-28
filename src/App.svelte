@@ -112,7 +112,7 @@ $: if(filters){
 
 <ScreenshotPreviewModal bind:imageSource={screenShotSrc}/>
 <main>
-  <Navbar bind:activeFilters={filters} on:imported={onImported} on:screenShot={TakeScreenShotClick}/>
+  <Navbar bind:activeFilters={filters} locations={locations} on:imported={onImported} on:screenShot={TakeScreenShotClick}/>
   <div class="container-fluid pt-3">
     <div class="d-flex flex-row">
       <div class="card me-3">

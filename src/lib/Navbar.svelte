@@ -6,6 +6,7 @@
   import FilterList from "./FilterList.svelte";
 
   export let activeFilters;
+  export let locations;
 
   const dispatcher = createEventDispatcher();
 
@@ -44,7 +45,7 @@
       Screenshot
     </button>
     <div>
-      <FilterList bind:activefilters={activeFilters} />
+      <FilterList bind:activefilters={activeFilters} locations={locations}/>
     </div>
 
     <div>

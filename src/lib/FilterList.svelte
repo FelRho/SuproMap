@@ -1,9 +1,10 @@
 <script>
+	import { locationTypes } from './scripts/enums.js';
     import Icon from "@iconify/svelte";
-    import { locationTypes } from "./scripts/enums";
     import { getIconColor, getIconName } from "./scripts/IconLib";
 
     export let activefilters;
+    export let locations;
 
     let allFilters = Object.keys(locationTypes);
     allFilters.push(undefined);
@@ -27,6 +28,10 @@
                     width="16"
                 />
                 {type}
+                <span class="position-absolute translate-middle badge rounded-pill bg-danger filter_count_position">
+                    {locations.filter(x => x.locationType === type).length}
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
             </button>
         {:else}
             <button
@@ -39,6 +44,10 @@
                     width="16"
                 />
                 {type}
+                <span class="position-absolute translate-middle badge rounded-pill bg-danger filter_count_position">
+                    {locations.filter(x => x.locationType === type).length}
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
             </button>
         {/if}
     {/each}
@@ -49,4 +58,10 @@
         max-width: 50vw;
         overflow: auto;
     }
+
+    .filter_count_position{
+        top: 2vh !important;
+    }
+
+
 </style>
