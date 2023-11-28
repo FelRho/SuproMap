@@ -2,7 +2,7 @@
 </h1>
 
 
-Diese Projekt wurde erstellt um darzustellen an welchen Orten/für welche Orte die Supro schon ein Seminar abgehalten hat.
+<p>Diese Projekt wurde erstellt um darzustellen an welchen Orten/für welche Orte die Supro schon ein Seminar abgehalten hat.</p>
 
 
 <h2>Funktion</h2>
