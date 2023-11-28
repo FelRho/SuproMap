@@ -4,7 +4,6 @@
   import { exportSavedData } from "./scripts/FileExporter";
   import Icon from "@iconify/svelte";
   import FilterList from "./FilterList.svelte";
-    import App from "../App.svelte";
     import AppInfoModal from "./Modals/AppInfoModal.svelte";
 
   export let activeFilters;

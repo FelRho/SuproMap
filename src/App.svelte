@@ -6,6 +6,7 @@
   import { storageManager } from "./lib/scripts/storage";
   import Navbar from "./lib/Navbar.svelte";
     import ScreenshotPreviewModal from './lib/Modals/ScreenshotPreviewModal.svelte';
+    import Footer from './lib/Footer.svelte';
 
     const tooltipTriggerList = document.querySelectorAll(
     '[data-bs-toggle="tooltip"]'
@@ -13,6 +14,8 @@
   const tooltipList = [...tooltipTriggerList].map(
     (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
   );
+
+
 
   let locations = [];
   let filters = ["Home","Külf", "Kilf", undefined];
@@ -74,10 +77,7 @@
     getSceenshotPromise().then((image) => {
       screenShotSrc = image;
     });
-
-
-    console.log(screenShotSrc)
-  }
+    }
 
 
 $: if(filters){
@@ -117,7 +117,7 @@ $: if(filters){
     <div class="d-flex flex-row">
       <div class="card me-3">
         <div class="card-body map">
-          {#key JSON.stringify(locations) && filterChangedTrigger}
+          {#key JSON.stringify(locations) + filterChangedTrigger}
             <Map
               locations={locations.filter(x => filters.includes(x.locationType))}
               bind:addMarker={mapAction}
@@ -140,6 +140,7 @@ $: if(filters){
       </div>
     </div>
   </div>
+  <Footer/>
 </main>
 
 <style>

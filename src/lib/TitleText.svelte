@@ -1,7 +1,6 @@
 <script>
 
     export let title;
-    export let color = "black";
     export let width = 15;
 </script>
 
