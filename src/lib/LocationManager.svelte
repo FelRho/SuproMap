@@ -62,7 +62,7 @@
 <div class="card">
     <div class="card-header">
         <div class="d-flex flex-row justify-content-between">
-            <h4 class="headline"><b>Besuchte Orte</b></h4>
+            <h4 class="headline"><b>Besuchte Orte ({locations.length})</b></h4>
             <div>
                 {#if editMode}
                     <button class="btn btn-success shake3" on:click={doneClick}>

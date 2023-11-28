@@ -46,7 +46,7 @@
                 {type}
                 <span class="position-absolute translate-middle badge rounded-pill bg-danger filter_count_position">
                     {locations.filter(x => x.locationType === type).length}
-                    <span class="visually-hidden">unread messages</span>
+                    <span class="visually-hidden">location count</span>
                   </span>
             </button>
         {/if}
@@ -56,12 +56,10 @@
 <style>
     .filter_list {
         max-width: 50vw;
-        overflow: auto;
+        overflow: visible;
     }
 
     .filter_count_position{
         top: 2vh !important;
     }
-
-
 </style>
