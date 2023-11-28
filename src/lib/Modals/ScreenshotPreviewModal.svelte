@@ -59,7 +59,7 @@
                 </button>
                 <button
                     type="button"
-                    class="btn btn-secondary"
+                    class="btn btn-danger"
                     data-bs-dismiss="modal">Close</button
                 >
             </div>

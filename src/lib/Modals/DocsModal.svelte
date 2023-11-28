@@ -36,8 +36,8 @@
             <div class="modal-footer">
                 <button
                     type="button"
-                    class="btn btn-secondary"
-                    data-bs-toggle="modal" data-bs-target="#appInfoModal">Back</button
+                    class="btn btn-danger"
+                    data-bs-dismiss="modal">Close</button
                 >
             </div>
         </div>

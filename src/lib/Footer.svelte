@@ -1,7 +1,12 @@
-<footer class="mt-5 d-flex justify-content-around pt-4 pb-2">
+<script>
+    import Icon from "@iconify/svelte";
+    import AppInfoModal from "./Modals/AppInfoModal.svelte";
+    import DocsModal from "./Modals/DocsModal.svelte";
+
+</script>
+<footer class="mt-5 px-5 py-3">
     <div>
-        <hr/>
-        <div class="d-flex flex-row justify-content-between footer_content px-2">
+        <div class="d-flex flex-row justify-content-between footer_content">
             <div class="d-flex flex-row">
                 <img
                 src="SuproMapIcon.png"
@@ -11,14 +16,18 @@
                 data-bs-toggle="modal"
                 data-bs-target="#appInfoModal"
                 />
-                <h5 class="headline">SuproMap</h5>
+                <div class="d-flex flex-column justify-content-center">
+                    <h4 class="headline text-center"><b>SuproMap</b></h4>
+                </div>
             </div>
-            <p>This is a centered text</p>
+            <p class="text-light">This is a centered text</p>
             <div>
-                <button class="btn btn-primary">
+                <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#appInfoModal">
+                    <Icon icon="material-symbols:info" width=30/>
                     Info
                 </button>
-                <button class="btn btn-primary">
+                <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#docModal">
+                    <Icon icon="streamline:manual-book" width=30/>
                     Docs
                 </button>
             </div>
@@ -28,13 +37,14 @@
 
 
 </footer>
-
+<AppInfoModal/>
+<DocsModal/>
 
 
 <style>
     footer{
-        background-color: #ffff;
-        border-top: 2px solid var(--color-tertiary);
+        background-color: black;
+        border-top: 10px solid var(--color-tertiary);
     }
 
     .footer_content{
