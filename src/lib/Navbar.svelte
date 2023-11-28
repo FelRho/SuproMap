@@ -27,21 +27,21 @@
         <img
           src="SuproMapIcon.png"
           alt="Logo"
-          width="70"
+          width="60"
           class="d-inline-block align-text-top"
           data-bs-toggle="modal"
           data-bs-target="#appInfoModal"
         />
 
         <div class="d-flex flex-column justify-content-center">
-          <h2 class="text-light ms-2">
+          <h3 class="text-light ms-2">
             <b>SuproMap</b>
-          </h2>
+          </h3>
         </div>
       </div>
     </a>
     <button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#screenshotModal" on:click={screenShotClick}>
-      <Icon icon="mdi:camera" width="30" />
+      <Icon icon="mdi:camera" width="20" />
       Screenshot
     </button>
     <div>
@@ -50,7 +50,7 @@
 
     <div>
       <button class="btn btn-outline-light" on:click={exportClick}>
-        <Icon icon="uil:export" width="25"/>
+        <Icon icon="uil:export" width="20"/>
         Export
       </button>
 
@@ -59,7 +59,7 @@
         data-bs-toggle="modal"
         data-bs-target="#importModal"
       >
-      <Icon icon="uil:import" width="25"/>
+      <Icon icon="uil:import" width="20"/>
         Import
       </button>
     </div>

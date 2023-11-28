@@ -2,8 +2,7 @@
     import Icon from "@iconify/svelte";
     import { locationTypes } from "./scripts/enums";
     import { getIconColor, getIconName } from "./scripts/IconLib";
-    import { createEventDispatcher } from "svelte";
-    import { fade, fly, slide } from "svelte/transition";
+
 
     export let activefilters;
 
@@ -27,12 +26,12 @@
     {#each allFilters as type}
     {#if activefilters.includes(type)}
     <button class="btn btn-light me-3" on:click={() => setOff(type)}>
-        <Icon icon={getIconName(type)} color={getIconColor(type)}  width=20/>
+        <Icon icon={getIconName(type)} color={getIconColor(type)}  width=16/>
         {type}
     </button>
     {:else}
     <button class="btn btn-outline-secondary me-3" on:click={() => setOn(type)}>
-        <Icon icon={getIconName(type)} color={getIconColor(type)}  width=20/>
+        <Icon icon={getIconName(type)} color={getIconColor(type)}  width=16/>
         {type}
     </button>
     {/if}
