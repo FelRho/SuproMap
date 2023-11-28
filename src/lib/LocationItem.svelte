@@ -36,7 +36,7 @@
                         color={getIconColor(location.locationType)}
                     />
                 </div>
-                <h5>{location.title}</h5>
+                <p class="fs-5 m-0">{location.title}</p>
             </div>
 
             {#if editMode}
@@ -49,7 +49,7 @@
                     </button>
                 </div>
                 {:else}
-                <button class="btn btn-primary" on:click={viewOnMapClick}>
+                <button class="btn btn-primary h-100" on:click={viewOnMapClick}>
                     <Icon icon="uiw:map" width=20/>
                 </button>
 
