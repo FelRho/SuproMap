@@ -16,6 +16,7 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "bootstrap": "^5.3.2"
+    "bootstrap": "^5.3.2",
+    "leaflet-simple-map-screenshoter": "^0.5.0"
   }
 }

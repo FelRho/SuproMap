@@ -1,4 +1,5 @@
 <script>
+	import LocationTypeDropDown from './../inputs/locationTypeDropDown.svelte';
     import Icon from "@iconify/svelte";
     import { locationTypes } from "../scripts/enums";
     import { createEventDispatcher } from "svelte";
@@ -64,21 +65,8 @@
                             bind:value={location.address}
                         />
                     </div>
-                    <div class="input-group mb-3">
-                        <label
-                            class="input-group-text"
-                            for="typeInputGroup"
-                        >
-                            Typ
-                        </label>
-                        <select id="typeInputGroup"
-                            class="form-select"
-                            bind:value={location.locationType}
-                        >
-                            {#each Object.keys(locationTypes) as prop}
-                                <option value={prop}>{prop}</option>
-                            {/each}
-                        </select>
+                    <div class="mb-3">
+                       <LocationTypeDropDown bind:selectedType={location.locationType}/>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Notiz</span>

@@ -10,6 +10,7 @@
 
     export let locations;
     export let selectedLocation;
+    export let filters;
 
     let editMode = false;
     let editedLocation;
@@ -61,7 +62,7 @@
 <div class="card">
     <div class="card-header">
         <div class="d-flex flex-row justify-content-between">
-            <h3 class="headline">Besuchte Orte</h3>
+            <h4 class="headline"><b>Besuchte Orte</b></h4>
             <div>
                 {#if editMode}
                     <button class="btn btn-success shake3" on:click={doneClick}>
@@ -73,10 +74,10 @@
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
                     >
-                        <Icon icon="ic:baseline-plus" width="25" />
+                        <Icon icon="ic:baseline-plus" width="22" />
                     </button>
                     <button class="btn btn-primary" on:click={editClick}>
-                        <Icon icon="mdi:pencil" width="25" />
+                        <Icon icon="mdi:pencil" width="22" />
                     </button>
                 {/if}
             </div>
@@ -84,7 +85,7 @@
     </div>
     <div class="card-body">
         <div class="scrollArea">
-            {#each locations as location}
+            {#each locations.filter(x => filters.includes(x.locationType)) as location}
                 {#key location.display_name}
                         <LocationItem
                             bind:location
@@ -107,6 +108,6 @@
     .scrollArea {
         height: 73vh;
         overflow: auto;
-        padding: 3%;
+        padding: 1%;
     }
 </style>

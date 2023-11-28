@@ -1,11 +1,12 @@
 <script>
+	import { locationTypes } from './lib/scripts/enums.js';
   import { onMount } from "svelte";
   import LocationManager from "./lib/LocationManager.svelte";
   import Map from "./lib/Map.svelte";
-  import { locationTypes } from "./lib/scripts/enums";
   import { storageManager } from "./lib/scripts/storage";
   import Navbar from "./lib/Navbar.svelte";
-    import FilterList from "./lib/FilterList.svelte";
+    import ScreenshotPreviewModal from './lib/Modals/ScreenshotPreviewModal.svelte';
+    import Footer from './lib/Footer.svelte';
 
     const tooltipTriggerList = document.querySelectorAll(
     '[data-bs-toggle="tooltip"]'
@@ -14,7 +15,11 @@
     (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
   );
 
+
+
   let locations = [];
+  let filters = ["Home","Külf", "Kilf", undefined];
+  let filterChangedTrigger = false;
 
   const suproLocation = {
     title: "Supro",
@@ -34,10 +39,11 @@
   });
 
   let selectedLocation = undefined;
-
+  let screenShotSrc = "";
 
   let mapAction;
   let setView;
+  let getSceenshotPromise;
 
   function saveChanges() {
     storageManager.saveToLocalstorage(locations);
@@ -45,8 +51,6 @@
 
   function showOnMap(e) {
     const data = e.detail;
-
-    console.log(data);
 
     setView(data.pos[0], data.pos[1], 15);
   }
@@ -67,6 +71,18 @@
     saveChanges();
   }
 
+  async function TakeScreenShotClick(){
+    
+
+    getSceenshotPromise().then((image) => {
+      screenShotSrc = image;
+    });
+    }
+
+
+$: if(filters){
+  filterChangedTrigger = !filterChangedTrigger;
+}
 </script>
 
 <svelte:head>
@@ -94,18 +110,19 @@
   ></script>
 </svelte:head>
 
+<ScreenshotPreviewModal bind:imageSource={screenShotSrc}/>
 <main>
-  <Navbar on:imported={onImported}/>
+  <Navbar bind:activeFilters={filters} on:imported={onImported} on:screenShot={TakeScreenShotClick}/>
   <div class="container-fluid pt-3">
-    <FilterList/>
     <div class="d-flex flex-row">
       <div class="card me-3">
         <div class="card-body map">
-          {#key JSON.stringify(locations)}
+          {#key JSON.stringify(locations) + filterChangedTrigger}
             <Map
-              bind:locations
+              locations={locations.filter(x => filters.includes(x.locationType))}
               bind:addMarker={mapAction}
               bind:setFocus={setView}
+              bind:getScreenshotPromise={getSceenshotPromise}
               on:showInList={showInList}
             />
           {/key}
@@ -114,7 +131,8 @@
 
       <div class="list">
         <LocationManager
-          bind:locations
+          filters={filters}
+          bind:locations={locations}
           bind:selectedLocation
           on:showOnMap={showOnMap}
           on:changed={saveChanges}
@@ -122,6 +140,7 @@
       </div>
     </div>
   </div>
+  <Footer/>
 </main>
 
 <style>

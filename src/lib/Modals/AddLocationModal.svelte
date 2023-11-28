@@ -19,7 +19,7 @@
   }
 
   function addPin(e) {
-    let data = e.detail;
+    let data = e.detail.location;
 
     let newLocation = {
       title: `${data.name}`,
@@ -29,7 +29,7 @@
         data.address.town || data.address.village || data.address.city
       }`,
       note: "",
-      locationType: undefined,
+      locationType: e.detail.category,
       display_name: data.display_name,
       pos: [data.lat, data.lon],
     };
@@ -58,6 +58,13 @@
       return result;
     } else {
       throw new Error(await res.text());
+    }
+  }
+
+  function onKeyDown(e){
+    if(e.key === "Enter")
+    {
+      searchClick();
     }
   }
 </script>
@@ -92,6 +99,7 @@
             class="form-control"
             placeholder="Name/Ort/Adresse"
             bind:value={searchText}
+            on:keydown={onKeyDown}
           />
           <button class="btn btn-primary" type="button" on:click={searchClick}>
             <Icon icon="material-symbols:search" width="24" />
