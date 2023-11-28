@@ -5,7 +5,9 @@
 Diese Projekt wurde erstellt um darzustellen an welchen Orten/für welche Orte die Supro schon ein Seminar abgehalten hat.
 
 
-<h2 style="margin-bottom: 5%;">Funktion</h2>
+<h2>Funktion</h2>
+
+<img src="https://raw.githubusercontent.com/FelRho/SuproMap/main/public/docs/AddEditCard.PNG" alt="add/edit card" width=200/>
 
 
 
