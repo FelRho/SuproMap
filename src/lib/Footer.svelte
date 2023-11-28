@@ -1,4 +1,4 @@
-<footer class="mt-5 d-flex justify-content-around p-5">
+<footer class="mt-5 d-flex justify-content-around pt-4 pb-2">
     <div>
         <hr/>
         <div class="d-flex flex-row justify-content-between footer_content px-2">
@@ -11,14 +11,10 @@
                 data-bs-toggle="modal"
                 data-bs-target="#appInfoModal"
                 />
-                <h4 class="headline">SuproMap</h4>
+                <h5 class="headline">SuproMap</h5>
             </div>
-            <p>Center Text</p>
-
-
-
+            <p>This is a centered text</p>
             <div>
-
                 <button class="btn btn-primary">
                     Info
                 </button>

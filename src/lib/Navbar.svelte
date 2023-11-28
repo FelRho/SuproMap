@@ -50,7 +50,7 @@
 
     <div>
       <button class="btn btn-outline-light" on:click={exportClick}>
-        <Icon icon="uil:export" width="20"/>
+        <Icon icon="uil:export" width="18"/>
         Export
       </button>
 
@@ -59,7 +59,7 @@
         data-bs-toggle="modal"
         data-bs-target="#importModal"
       >
-      <Icon icon="uil:import" width="20"/>
+      <Icon icon="uil:import" width="18"/>
         Import
       </button>
     </div>
