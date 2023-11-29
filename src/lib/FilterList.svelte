@@ -1,5 +1,5 @@
 <script>
-	import { locationTypes } from './scripts/enums.js';
+    import { locationTypes } from "./scripts/enums.js";
     import Icon from "@iconify/svelte";
     import { getIconColor, getIconName } from "./scripts/IconLib";
 
@@ -27,11 +27,9 @@
                     color={getIconColor(type)}
                     width="16"
                 />
-                {type}
-                <span class="position-absolute translate-middle badge rounded-pill bg-danger filter_count_position">
-                    {locations.filter(x => x.locationType === type).length}
-                    <span class="visually-hidden">unread messages</span>
-                  </span>
+
+                {type} ({locations.filter((x) => x.locationType === type)
+                    .length})
             </button>
         {:else}
             <button
@@ -43,11 +41,7 @@
                     color={getIconColor(type)}
                     width="16"
                 />
-                {type}
-                <span class="position-absolute translate-middle badge rounded-pill bg-danger filter_count_position">
-                    {locations.filter(x => x.locationType === type).length}
-                    <span class="visually-hidden">location count</span>
-                  </span>
+                {type} ({locations.filter((x) => x.locationType === type).length})
             </button>
         {/if}
     {/each}
@@ -57,9 +51,5 @@
     .filter_list {
         max-width: 50vw;
         overflow: visible;
-    }
-
-    .filter_count_position{
-        top: 2vh !important;
     }
 </style>
